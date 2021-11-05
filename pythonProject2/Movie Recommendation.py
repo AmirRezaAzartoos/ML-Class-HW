@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import MultinomialNB
 
 
-data_path = 'ml-1m/ratings3.dat'
+data_path = 'ml-1m/ratings.dat'
 n_users = 610
 n_movies = 9742
 
@@ -43,6 +43,7 @@ Y_raw = data[:, movie_id_mapping[movie_id_most]]
 
 X = X_raw[Y_raw > 0]
 Y = Y_raw[Y_raw > 0]
+Y1 = Y_raw[Y_raw > 0]
 
 recommend = 3
 Y[Y <= recommend] = 0
@@ -64,11 +65,13 @@ display_distribution(data)
 print("-------------------most rating----------------------")
 print(f'Movie ID {movie_id_most} has {n_rating_most} ratings.')
 print("----------------------------------------------------")
+print('Shape of data:', data.shape)
+print("----------------------------------------------------")
 print('Shape of X:', X.shape)
 print("----------------------------------------------------")
-print('Shape of Y:', Y.shape)
+print('Shape of Y:', Y1.shape)
 print("------------display distribution of Y---------------")
-display_distribution(Y)
+display_distribution(Y1)
 print("----------------------------------------------------")
 print(f'{n_pos} positive samples and {n_neg} negative samples.')
 print("------------------train test split------------------")

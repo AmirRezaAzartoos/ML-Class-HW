@@ -1,12 +1,16 @@
 import numpy as np
 from collections import defaultdict
 
+# train dataset -> features
 X_train = np.array([
     [0, 1, 1],
     [0, 0, 1],
     [0, 0, 0],
     [1, 1, 0]])
+# train dataset -> labels
 Y_train = ['Y', 'N', 'Y', 'Y']
+
+# test dataset
 X_test = np.array([[1, 1, 0]])
 
 
